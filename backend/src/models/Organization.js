@@ -10,7 +10,7 @@ const organizationSchema = new mongoose.Schema(
 
         organizationType: {
             type: String,
-            enum: ["POLICE", "LAW_FIRM", "COURT", "IVESTIGATION_AGENCY"],
+            enum: ["POLICE", "LAW_FIRM", "COURT", "INVESTIGATION_AGENCY"],
             required: true
         }
     },

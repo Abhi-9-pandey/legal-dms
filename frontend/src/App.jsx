@@ -1,12 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardLayout from "./layouts/DashboardLayout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         
+        {/* Public Routes */}
         <Route 
           path="/"
           element={<h1>Secure Legal DMS</h1>}
@@ -19,13 +25,25 @@ function App() {
 
         <Route 
           path="/register"
-          element={<h1>Register Page</h1>}
+          element={<Register />}
         />
 
+        {/* Protected Application */}
+
         <Route 
-          path="/dashboard"
-          element={<h1>Dashboard</h1>}
-        />
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
+
+          <Route 
+            path="/dashboard"
+            element={<Dashboard />}
+          />
+
+        </Route>
 
 
       </Routes>    
