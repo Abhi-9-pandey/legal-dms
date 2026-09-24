@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Placeholder from "./pages/Placeholder";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -41,6 +42,36 @@ function App() {
           <Route 
             path="/dashboard"
             element={<Dashboard />}
+          />
+
+          <Route 
+            path="/documents" 
+            element={<Placeholder title="Documents" />} 
+          /> 
+          
+          <Route 
+            path="/cases" 
+            element={<Placeholder title="Cases" />} 
+          /> 
+          
+          <Route 
+            path="/evidence" 
+            element={<Placeholder title="Evidence" />} 
+          /> 
+          
+          <Route 
+            path="/audit-logs" 
+            element={<Placeholder title="Audit Logs" />} 
+          /> 
+          
+          <Route 
+            path="/users" 
+            element={<Placeholder title="Users" />} 
+          /> 
+          
+          <Route 
+            path="/settings" 
+            element={<Placeholder title="Settings" />} 
           />
 
         </Route>
