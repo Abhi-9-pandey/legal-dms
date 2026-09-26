@@ -4,10 +4,17 @@ const protect = require("../middleware/authMiddleware");
 const upload = require("../middleware/uploadMiddleware");
 
 const {
-    uploadDocument
+    uploadDocument,
+    getDocuments
 } = require("../controllers/documentController");
 
 const router = express.Router();
+
+router.get(
+    "/",
+    protect,
+    getDocuments
+);
 
 router.post(
     "/upload",

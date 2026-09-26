@@ -46,6 +46,30 @@ const uploadDocument = async (req, res) => {
     }
 };
 
+const getDocuments = async (req, res) => {
+    try {
+        const documents = await Document.find({
+            organization: req.user.organizationId
+        })
+            .populate("uploadedBy", "name email role")
+            .sort({ createdAt: -1 });
+
+        res.status(200).json({
+            documents
+        });
+    } catch (error) {
+        console.error(
+            "Get documents error:",
+            error
+        );
+
+        res.status(500).json({
+            message: "Server error while fetching documents"
+        });
+    }
+};
+
 module.exports = {
-    uploadDocument
+    uploadDocument,
+    getDocuments
 };
